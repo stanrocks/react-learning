@@ -8,8 +8,9 @@ export default function useIsMobile() {
 		setIsMobile(false);
 	};
 
+	window.addEventListener("resize", calculateIsMobile);
+
 	useEffect(() => {
-		window.addEventListener("resize", calculateIsMobile);
 		calculateIsMobile();
 	}, []);
 
