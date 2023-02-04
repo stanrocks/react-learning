@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { InputValueContext } from "../context/inputValueContext";
 
 export default function MultipliedByTwo() {
-	return <>{/* <p>Multiplied number: {inputValue * 2}</p> */}</>;
+	const { state } = useContext(InputValueContext);
+	console.log(state);
+
+	return (
+		<>
+			<p>Multiplied number: {state.inputValue * 2}</p>
+		</>
+	);
 }
