@@ -1,5 +1,6 @@
 // https://tanstack.com/query/latest/docs/react/overview
 import { QueryClient, QueryClientProvider } from "react-query";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
 	const queryClient = new QueryClient();
@@ -7,7 +8,7 @@ function App() {
 	return (
 		<>
 			<QueryClientProvider client={queryClient}>
-				<p>random</p>
+				<Dashboard />
 			</QueryClientProvider>
 		</>
 	);
