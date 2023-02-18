@@ -3,11 +3,14 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { AccountProvider } from "./context/accountContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
-		<App transferToPerson="John Doe" />
+		<AccountProvider>
+			<App transferToPerson="John Doe" />
+		</AccountProvider>
 	</React.StrictMode>
 );
 

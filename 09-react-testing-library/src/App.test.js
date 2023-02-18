@@ -1,9 +1,15 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "./App";
+import { AccountProvider } from "./context/accountContext";
 
+// If using context API that uses whapper provider, we need to render wrapper too (<Provider><App /></Provider>):
 test("if $500 is sent, the account balance is updated", async () => {
-	render(<App />);
+	render(
+		<AccountProvider>
+			<App />
+		</AccountProvider>
+	);
 
 	// grab something from screen we can use getBy
 	userEvent.type(
@@ -34,7 +40,11 @@ test("if $500 is sent, the account balance is updated", async () => {
 
 // test props:
 test("if transferToPerson name prop is passed, render the name", () => {
-	render(<App transferToPerson="Michael Jackson" />);
+	render(
+		<AccountProvider>
+			<App transferToPerson="Michael Jackson" />
+		</AccountProvider>
+	);
 
 	expect(
 		screen.getByText(/send money to: michael jackson/i)
