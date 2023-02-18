@@ -31,3 +31,12 @@ test("if $500 is sent, the account balance is updated", async () => {
 		screen.queryByText(/current account balance: 5000/i)
 	).not.toBeInTheDocument();
 });
+
+// test props:
+test("if transferToPerson name prop is passed, render the name", () => {
+	render(<App transferToPerson="Michael Jackson" />);
+
+	expect(
+		screen.getByText(/send money to: michael jackson/i)
+	).toBeInTheDocument();
+});
